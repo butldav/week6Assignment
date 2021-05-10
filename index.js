@@ -1,10 +1,10 @@
+// Card objects taking a suit and rank of the card
 class Card {
     constructor(suit, rank) {
         this.suit = suit;
         this.rank = rank;
-        // this.value = value;
     }
-
+// Find value of card
     cardValue() {
         var cardValue = parseInt(this.rank);
         
@@ -13,10 +13,10 @@ class Card {
                 case 'J':
                     cardValue = 11;
                     break;
-                case 'K':
+                case 'Q':
                     cardValue = 12;
                     break;
-                case 'Q':
+                case 'K':
                     cardValue = 13;
                     break;
                 case 'A':
@@ -28,7 +28,7 @@ class Card {
         return cardValue;
     }
 }
-
+// create deck object with methods to fill the deck with cards and shuffle.
 class Deck {
     constructor(){        
         
@@ -36,6 +36,7 @@ class Deck {
         this.stackDeck();
 
     }
+// fill deck array with card objects    
     stackDeck() {
         let suits = ['Hearts', 'Spades', 'Clubs', 'Diamonds'];
         let ranks = ['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
@@ -45,6 +46,7 @@ class Deck {
             }
         }
     }
+//randomize deck
     shuffle() {
         if(this.deckOfCards.length == 0){
             this.stackDeck();
@@ -62,14 +64,14 @@ class Deck {
     }
 
 }
-
+// player objects with name, hand and points total
 class Player {
     constructor(name){
         this.name = name;
         this.hand = [];
         this.points = 0;
     }
-
+// play card from hand
     playCard() {
         let cardPlayed;
 
@@ -82,14 +84,14 @@ class Player {
 
     }
 }
-
+// Game object with game initializaion and rounds featuring two player objects and deck object
 class Game {
     constructor() {
         this.player1;
         this.player2;
         this.deck;
     }
-
+// start round
     start() {
         this.player1 = new Player(prompt('Enter Player 1\'s name:'));
         this.player2 = new Player(prompt('Enter Player 2\'s name:'));
@@ -98,6 +100,7 @@ class Game {
         this.dealCards();
         this.playRound();
     }
+// deal card objects to players from deck object
     dealCards() {
         while(this.deck.deckOfCards.length > 0){
             let dealtCard1 = this.deck.deckOfCards.splice(0, 1);
@@ -106,7 +109,7 @@ class Game {
             this.player2.hand.push(dealtCard2[0]);
         }
     }
-
+// play round with players playing card from hand until hand is empty
     playRound() {
         while(this.player1.hand.length > 0 && this.player2.hand.length > 0) {
 
@@ -115,7 +118,7 @@ class Game {
 
             let player1CardValue = player1Card.cardValue();
             let player2CardValue = player2Card.cardValue();
-
+// increment points for whoever played the card with higher value, no points awarded for tie
             if(player1CardValue > player2CardValue) {
                 this.player1.points++;
                 console.log(`${this.player1.name} gets 1 point.`);
@@ -126,6 +129,7 @@ class Game {
                 console.log(`It was a tie!`);
             }
         }
+// log points and winner
         console.log(`${this.player1.name} points: ${this.player1.points}`);
         console.log(`${this.player2.name} points: ${this.player2.points}`);
         if(this.player1.points > this.player2.points) {
@@ -138,6 +142,6 @@ class Game {
 
     }
 }
-
+// initialize game
 var throwDown = new Game();
 throwDown.start();

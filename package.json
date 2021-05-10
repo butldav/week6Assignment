@@ -1,0 +1,23 @@
+{
+  "name": "week6assignment",
+  "version": "1.0.0",
+  "description": "Promineo Tech Final Coding Project Javascript\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D- Intro to Javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/butldav/week6Assignment.git"
+  },
+  "author": "butldav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/butldav/week6Assignment/issues"
+  },
+  "homepage": "https://github.com/butldav/week6Assignment#readme",
+  "dependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2"
+  }
+}
